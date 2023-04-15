@@ -820,23 +820,31 @@ button {
         max-height: 300px;
     }
 }
+@media (max-width: 600px) {
+    .collections-box {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .admissions-box-cards {
+        padding: 0 10px;
+    }
+}
 @media (max-width: 575px) {
     .modal-dialog {
         width: auto;
     }
 }
-@media (max-width: 540px) {
-    .collections-link-album-img {
-        width: 50px;
-    }
-    .collections-link-album-box {
-        height: 100px;
-    }
-    .collections-link-box {
-        width: 150px;
-        max-height: 270px;
-    }
-}
+/*@media (max-width: 540px) {*/
+/*    .collections-link-album-img {*/
+/*        width: 50px;*/
+/*    }*/
+/*    .collections-link-album-box {*/
+/*        height: 100px;*/
+/*    }*/
+/*    .collections-link-box {*/
+/*        width: 150px;*/
+/*        max-height: 270px;*/
+/*    }*/
+/*}*/
 @media (max-width: 530px) {
   .footer-downer {
     flex-direction: column;
@@ -853,9 +861,6 @@ button {
     }
     .admissions-box-cards, .catalogue-box-cards, .bands-box-cards{
         grid-gap: 30px;
-    }
-    .collections-box {
-        grid-template-columns: repeat(1, 1fr);
     }
     .collections-link-album-img {
         width: 75px;
