@@ -1,6 +1,25 @@
 @extends('layouts.layout', ['title' => 'Каталог'])
 
 @section('content')
+    <section class="sort-section">
+        <div class="container sort-container">
+            <form action="{{ route('products.index') }}" class="sorter-form" name="sorter" method="get">
+                <div class="form-body">
+                    <select name="sortByPrice" id="sortByPrice" class="sorter-select form-select" data-bs-theme="dark" aria-label=".form-select-sm" data-role="sort">
+                        <option value="default" selected disabled class="sorter-price-select-item">Цена</option>
+                        <option value="cheap" class="sorter-price-select-item">Сначала дешевле</option>
+                        <option value="expensive" class="sorter-price-select-item">Сначала дороже</option>
+                    </select>
+                    <select name="sortByDate" id="sortByAddDate" class="sorter-select form-select" aria-label=".form-select-sm" data-role="sort">
+                        <option value="default" selected disabled class="sorter-price-select-item">По году</option>
+                        <option value="newer" class="sorter-price-select-item">Сначала новее</option>
+                        <option value="elder" class="sorter-price-select-item">Сначала старше</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-light">Применить</button>
+            </form>
+        </div>
+    </section>
     <section class="catalogue">
         <div class="container catalogue-container">
             @if(isset($_GET['search']))
@@ -17,6 +36,7 @@
                     </div>
                 @endif
             @else
+
                 <h2 class="catalogue-title section-title">Каталог :</h2>
             @endif
                 <div class="catalogue-box-cards">
@@ -48,12 +68,12 @@
                         </div>
                     @endforeach
                 </div>
-                @if(isset($_GET['search']))
-                @else
-                    <div class="d-flex justify-content-start mt-3">
-                        {!! $products->links() !!}
-                    </div>
-                @endif
+{{--                @if(isset($_GET['search']))--}}
+{{--                @else--}}
+{{--                    <div class="d-flex justify-content-start mt-3">--}}
+{{--                        {!! $products->links() !!}--}}
+{{--                    </div>--}}
+{{--                @endif--}}
         </div>
     </section>
     <!-- /.catalogue -->

@@ -53,6 +53,41 @@ class ProductController extends Controller
     }
     public function index(Request $request)
     {
+        if ($request->sortByPrice || $request->sortByDate) {
+            switch ($request->get('sortByPrice')){
+                case 'cheap':
+                    $prod = DB::table('products')
+                        ->join('bands', 'prod_band', '=', 'band_id')
+                        ->join('genres', 'prod_genre', '=', 'genre_id')
+                        ->orderBy('prod_price')
+                        ->get();
+                    break;
+                case 'expensive' :
+                    $prod = DB::table('products')
+                        ->join('bands', 'prod_band', '=', 'band_id')
+                        ->join('genres', 'prod_genre', '=', 'genre_id')
+                        ->orderByDesc( 'prod_price')
+                        ->get();
+                    break;
+                default :
+                    $prod = DB::table('products')
+                        ->join('bands', 'prod_band', '=', 'band_id')
+                        ->join('genres', 'prod_genre', '=', 'genre_id')
+                        ->get();
+                    break;
+            }
+            switch ($request->get('sortByDate')){
+                case 'newer':
+                    $products = $prod->sortByDesc('prod_year');
+                    break;
+                case 'elder':
+                    $products = $prod->sortBy('prod_year');
+                    break;
+                default :
+                    $products = $prod;
+                    break;
+            }
+        } else
         if ($request->search) {
             $products = DB::table('products')
                 ->join('bands', 'prod_band', '=', 'band_id')
@@ -63,12 +98,12 @@ class ProductController extends Controller
                 ->get();
 
             return view('products.index', compact('products'));
-        }
+        } else
         $products = DB::table('products')
             ->join('bands', 'prod_band', '=', 'band_id')
             ->join('genres', 'prod_genre', '=', 'genre_id')
             ->orderBy( 'band_name')
-            ->paginate(12);
+            ->get();
 
         return view('products.index', compact('products'));
     }
