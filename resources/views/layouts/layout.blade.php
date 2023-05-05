@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ $title }}</title>
+    <title>smnmnt | {{ $title }}</title>
 
 
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('./img/favicons/apple-touch-icon.png') }}">
@@ -12,6 +12,8 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('./img/favicons/favicon-16x16.png') }}">
     <link rel="manifest" href="{{ asset('./img/favicons/site.webmanifest') }}">
     <link rel="mask-icon" href="{{ asset('./img/favicons/safari-pinned-tab.svg') }}" color="#5bbad5">
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=ваш API-ключ&lang=ru_RU&load=Geolink"
+            type="text/javascript"></script>
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -49,10 +51,10 @@
                                     </div>
                                 </li>
                                 <li class="nav-item nav-link">
-                                    <a href="#" class="header-link">Контакты</a>
+                                    <a href="#footer" class="header-link">Контакты</a>
                                 </li>
                                 <li class="nav-item nav-link">
-                                    <a href="#" class="header-link">Оплата и доставка</a>
+                                    <a href="{{ route('pay.index') }}" class="header-link">Оплата и доставка</a>
                                 </li>
                                 @auth()
                                     <li class="nav-item">
@@ -158,15 +160,16 @@
     <div class="container footer-container">
         <div class="footer-upper">
             <div class="footer-upper-nav">
-                <a href="#" class="footer-link">Главная</a>
+                <a href="/" class="footer-link">Главная</a>
                 <a href="{{ route('products.index') }}" class="footer-link">Каталог</a>
-                <a href="#" class="footer-link">Контакты</a>
-                <a href="#" class="footer-link">Оплата и доставка</a>
+                <a href="{{ route('pay.index') }}" class="footer-link">Оплата и доставка</a>
             </div>
             <a href="/" class="footer-name footer-link">smnmnt</a>
         </div>
         <div class="footer-downer">
-            <p class="footer-adress">Московская  обл., г. Жуковский,  ул. Гагарина 64к3</p>
+            <span class="footer-adress ymaps-geolink" id="footer-adress-link">
+                Московская  обл., г. Жуковский,  ул. Гагарина 64к3
+            </span>
             <div class="footer-downer-contacts">
                 <a href="tel:+70000000000" class="footer-downer-contact footer-downer-contacts-tel">+7(000)-000-00-00</a>
                 <a href="https://github.com/smnmnt" class="footer-downer-contact footer-downer-contacts-link"><img src="{{ asset('img/icons/github-color.svg') }}" alt="github" class="footer-downer-contacts-git"> smnmnt</a>
@@ -193,7 +196,7 @@
                 <p class="cart-quantity"></p>
                 <!-- /.cart-quantity -->
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
-                <button type="button" class="btn btn-primary">Заказать</button>
+                <a href="{{ route('pay.index') }}" class="btn btn-primary">Заказать</a>
             </div>
         </div>
     </div>

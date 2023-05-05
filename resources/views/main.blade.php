@@ -1,4 +1,4 @@
-@extends('layouts.layout', ['title' => 'smnmnt'])
+@extends('layouts.layout', ['title' => 'Главная'])
 
 @section('content')
     @if(isset($products) && sizeof($products))
@@ -89,7 +89,7 @@
                             <div class="collections-link-album-box">
                                 @foreach($collection_img as $coll_img)
                                     @if($coll_img->coll_id == $collection->coll_id)
-                                        <img src="{{ $coll_img->prod_img }}" alt="collection-album-img" class="collections-link-album-img">
+                                        <img src="{{ asset($coll_img->prod_img) }}" alt="collection-album-img" class="collections-link-album-img">
                                     @endif
                                 @endforeach
                             </div>

@@ -79,6 +79,13 @@ button {
     display: flex;
     flex-direction: column;
 }
+.footer-link:hover, .header-link:hover, .standart-card-info a:hover, .standart-card-spec a:hover, .product-info a:hover {
+    color: rgba(255, 255, 255, 0.6);
+}
+.footer-link, .header-link, .standart-card-info a, .standart-card-spec a, .product-info a {
+     transition: 200ms;
+ }
+
 .standart-card-album_name {
 
   margin: 5px 0 15px;
@@ -364,8 +371,17 @@ button {
 .footer-downer-contact {
   color: rgba(123, 123, 123, 0.7);
 }
-.footer-adress {
-  color: rgba(123, 123, 123, 0.7);
+
+#footer-adress-link {
+    color: rgba(123, 123, 123, 0.7);
+    margin: 0;
+}
+#footer-adress-link:hover {
+    color: #fff
+}
+.footer-downer span::before, .footer-downer span::after {
+    content: none;
+
 }
 
 .product_section {
@@ -456,6 +472,9 @@ button {
 }
 .catalogue {
   padding: 40px 0;
+}
+.catalogue-card a {
+    width: inherit;
 }
 .catalogue-title {
   margin-bottom: 40px;
@@ -701,7 +720,42 @@ button {
     background-color: #5A4181 !Important;
     border: solid 1px #5A4181;
 }
+/*pay-page*/
+.pay-container {
+    color: #ffffff;
+}
+.pay-title {
+     font-size: 2rem;
+    margin-bottom: 1rem;
+ }
+.pay-header {
+    margin-bottom: 2rem;
+}
+.pay-header-title {
+    font-size: 3rem;
+}
+.pay-footer-title {
+    align-self: flex-start;
+}
+.pay-desc {
+    font-size: 1rem;
+    align-self: flex-start;
+}
 
+.pay-image{
+    max-width: 300px;
+    width: 100%;
+    margin: 1rem 0;
+}
+.pay-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.pay-specific {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+}
 @media (max-width: 1440px) {
     html {
         font-size: 12px;

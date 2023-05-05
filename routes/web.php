@@ -62,6 +62,8 @@ Route::patch('/collections/show/{id}', [\App\Http\Controllers\CollectionControll
 Route::delete('/collections/{id}', [\App\Http\Controllers\CollectionController::class, 'destroy'])->name('collections.destroy');
 
 
+Route::get('/pay', [\App\Http\Controllers\ProductController::class, 'pay'])->name('pay.index');
+
 
 Auth::routes();
 

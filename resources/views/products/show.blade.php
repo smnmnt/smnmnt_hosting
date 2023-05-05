@@ -32,9 +32,9 @@
                     <p class="product-album_year">Год выхода: {{ $prod->prod_year }}</p>
                     <div class="standart-card-price-box product-price-box">
                         @if($prod->prod_sale == 0)
-                            <p class="standart-card-price-new product-price-new">{{ $prod->prod_price }} ₽</p>
+                            <p class="standart-card-price standart-card-price-new product-price-new">{{ $prod->prod_price }} ₽</p>
                         @else
-                            <p class="standart-card-price-old product-price-old">{{ $prod->prod_price }} ₽</p>
+                            <p class="standart-card-price standart-card-price-old product-price-old">{{ $prod->prod_price }} ₽</p>
                             <p class="standart-card-price-new product-price-new">{{ $prod->prod_sale }} ₽</p>
                         @endif
                     </div>

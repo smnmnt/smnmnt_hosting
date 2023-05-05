@@ -14,12 +14,18 @@ class ProductController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->except('main', 'index', 'show');
+        $this->middleware('auth')->except('main', 'pay', 'index', 'show');
     }
 
     /**
      * Display a listing of the resource.
      */
+    public function pay ()
+    {
+        $title = 'Оплата и доставка';
+        return view('pay', compact('title'));
+    }
+
     public function main()
     {
         config()->set('database.connections.mysql.strict', false);
